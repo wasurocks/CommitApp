@@ -9,6 +9,9 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.EditText;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         // Add a border below each word to give space
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL));
+
+
     }
 
     public void newTask(View view) {
@@ -48,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
                     StringBuilder message = new StringBuilder("• ");
                     // Add the new task to the linked list
                     mToDoList.addLast(message.append(result).toString());
+                    RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
+                            Animation.RELATIVE_TO_SELF, 0.5f,
+                            Animation.RELATIVE_TO_SELF, 0.5f);
+
+                    rotateAnimation.setInterpolator(new LinearInterpolator());
+                    rotateAnimation.setDuration(500);
+                    rotateAnimation.setRepeatCount(0);
+                    findViewById(R.id.app_logo).startAnimation(rotateAnimation);
                 }
             }
         });
