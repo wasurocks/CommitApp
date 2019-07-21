@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Commit</string>
+    <string name="commit_text">Commit</string>
+    <string name="add_text">Add</string>
+    <string name="btn_new_task">New Task</string>
+    <string name="dialog_new_task">Test task</string>
+    <string name="fire">fire!</string>
+    <string name="cancel">cancel</string>
+</resources>
