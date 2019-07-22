@@ -2,7 +2,6 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#000000"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,6 +10,7 @@
         android:layout_height="wrap_content"
         app:elevation="0dp">
 
+        <!-- Set text and text color in NewTaskDialogFragment.java, not here -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -27,6 +27,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
+        android:clipToPadding="false"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -42,11 +43,13 @@
             android:layout_marginBottom="256dp"
             android:onClick="onClick"
             android:text="@string/add_text"
+            app:elevation="0dp"
             app:icon="@drawable/ic_add_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
@@ -59,11 +62,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="24dp"
-            android:background="#00B4B4B4"
             android:hint="Enter text here"
-            app:boxBackgroundColor="#FFFFFF"
-            app:boxStrokeColor="#FFFFFFFF"
-            app:hintTextColor="#FFFFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -72,10 +71,10 @@
             app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#FFFFFF"
                 android:id="@+id/todo_input"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#FF000000"
+                android:layout_height="62dp"
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>

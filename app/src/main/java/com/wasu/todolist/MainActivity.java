@@ -36,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         // Give the RecyclerView a default layout manager.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // Add a border below each word to give space
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL));
 
 
     }
@@ -50,20 +47,24 @@ public class MainActivity extends AppCompatActivity {
             public void finish(String result){
                 // Check to see if the added item from dialog is empty or not
                 if(result != null && !result.isEmpty()) {
-                    StringBuilder message = new StringBuilder("• ");
                     // Add the new task to the linked list
-                    mToDoList.addLast(message.append(result).toString());
-                    RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
-                            Animation.RELATIVE_TO_SELF, 0.5f,
-                            Animation.RELATIVE_TO_SELF, 0.5f);
-
-                    rotateAnimation.setInterpolator(new LinearInterpolator());
-                    rotateAnimation.setDuration(500);
-                    rotateAnimation.setRepeatCount(0);
-                    findViewById(R.id.app_logo).startAnimation(rotateAnimation);
+                    mToDoList.addLast(result.trim());
+                    // Little spinning animation for logo
+                    rotateLogo(R.id.app_logo);
                 }
             }
         });
 
+    }
+
+    public void rotateLogo(int id) {
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setDuration(500);
+        rotateAnimation.setRepeatCount(0);
+        findViewById(id).startAnimation(rotateAnimation);
     }
 }

@@ -63,7 +63,6 @@ public class NewTaskDialogFragment extends DialogFragment {
         toolbar.setNavigationOnClickListener(v -> dismiss());
         button_done.setOnClickListener(new OKListener());
         toolbar.setTitle("Add new task");
-        toolbar.setTitleTextColor(Color.WHITE);
     }
 
     private class OKListener implements android.view.View.OnClickListener {

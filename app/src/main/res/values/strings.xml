@@ -6,4 +6,6 @@
     <string name="dialog_new_task">Test task</string>
     <string name="fire">fire!</string>
     <string name="cancel">cancel</string>
+    <string name="desc_app_logo">App logo</string>
+    <string name="text_add_new_task">Add new task</string>
 </resources>
