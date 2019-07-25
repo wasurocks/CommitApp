@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class NewTaskDialogFragment extends DialogFragment {
 
@@ -19,6 +22,7 @@ public class NewTaskDialogFragment extends DialogFragment {
 
     private Toolbar toolbar;
     private Button button_done;
+    private SwitchMaterial switch_pick_date;
     private EditText todo_input;
     private OnMyDialogResult mDialogResult;
 
@@ -52,6 +56,7 @@ public class NewTaskDialogFragment extends DialogFragment {
 
         toolbar = view.findViewById(R.id.toolbar);
         button_done = view.findViewById(R.id.btn_add_task);
+        switch_pick_date = view.findViewById(R.id.switch_pick_date);
         todo_input = view.findViewById(R.id.todo_input);
 
         return view;
@@ -61,18 +66,23 @@ public class NewTaskDialogFragment extends DialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         toolbar.setNavigationOnClickListener(v -> dismiss());
-        button_done.setOnClickListener(new OKListener());
+        button_done.setOnClickListener(this::onAdd);
+        switch_pick_date.setOnClickListener(this::onSwitchPickDate);
         toolbar.setTitle("Add new task");
     }
 
-    private class OKListener implements android.view.View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if( mDialogResult != null ){
-                mDialogResult.finish(String.valueOf(todo_input.getText()));
-            }
-            NewTaskDialogFragment.this.dismiss();
+    public void onAdd(View v) {
+        if (mDialogResult != null) {
+            mDialogResult.finish(String.valueOf(todo_input.getText()));
         }
+        NewTaskDialogFragment.this.dismiss();
+    }
+
+    // Expand on the switch to open up a dialog fragment to select a date
+
+    public void onSwitchPickDate(View v) {
+        Toast test = Toast.makeText(getContext(), "Date Enabled", Toast.LENGTH_SHORT);
+        test.show();
     }
 
     public void setDialogResult(OnMyDialogResult dialogResult){

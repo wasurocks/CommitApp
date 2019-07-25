@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private final LinkedList<String> mToDoList = new LinkedList<>();
     private RecyclerView mRecyclerView;
     private ToDoListAdapter mAdapter;
+    private TextView mNoOfCommits;
+    private int no_of_commits = 0;
 
 
     @Override
@@ -36,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         // Give the RecyclerView a default layout manager.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        mNoOfCommits = findViewById(R.id.text_no_of_commit);
+        mNoOfCommits.setText(R.string.text_initial_no_commits);
 
     }
 
@@ -51,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
                     mToDoList.addLast(result.trim());
                     // Little spinning animation for logo
                     rotateLogo(R.id.app_logo);
+                    no_of_commits++;
+                }
+                if (no_of_commits > 0) {
+                    if (no_of_commits == 1) {
+                        mNoOfCommits.setText("1 commitment");
+                    } else {
+                        mNoOfCommits.setText(no_of_commits + " commitments");
+                    }
+
                 }
             }
         });
