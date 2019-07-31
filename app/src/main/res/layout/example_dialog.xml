@@ -37,9 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="#0DFFFFFF"
             app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_add_task"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +59,6 @@
                     android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:text="Enable Date"
-                    android:textColor="#FFFFFFFF"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/switch_pick_date"
@@ -75,10 +73,7 @@
                     android:layout_marginRight="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:thumbTint="#E1FFFFFF"
-                    app:trackTint="#40FFFFFF"
-                    app:useMaterialThemeColors="false" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,11 +103,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
             android:layout_marginTop="128dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginRight="36dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginRight="44dp"
             android:hint="Enter text here"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
