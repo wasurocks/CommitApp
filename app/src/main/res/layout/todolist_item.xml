@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
     android:orientation="vertical">
     <!--Margin for between cards -->
 
@@ -13,30 +12,26 @@
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/mtrl_card_spacing"
-        android:layout_marginTop="@dimen/mtrl_card_spacing"
-        android:layout_marginRight="@dimen/mtrl_card_spacing"
         android:minHeight="150dp"
-        app:cardBackgroundColor="#14FFFFFF"
-        app:cardElevation="0dp"
         app:cardCornerRadius="12dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
         tools:ignore="PrivateResource">
 
         <!-- Card contents. -->
 
         <RelativeLayout
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
 
             <TextView
                 android:id="@+id/todo"
                 style="@style/todo_title"
                 android:layout_width="match_parent"
                 android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:textColor="#FFFFFF" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/todo2"
@@ -47,8 +42,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
-                android:text="Remaining: N days"
-                android:textColor="#FFFFFF" />
+                android:text="Remaining: N days" />
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>

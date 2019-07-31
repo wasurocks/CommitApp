@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -67,7 +68,7 @@ public class NewTaskDialogFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         toolbar.setNavigationOnClickListener(v -> dismiss());
         button_done.setOnClickListener(this::onAdd);
-        switch_pick_date.setOnClickListener(this::onSwitchPickDate);
+        switch_pick_date.setOnCheckedChangeListener(this::onSwitchPickDate);
         toolbar.setTitle("Add new task");
     }
 
@@ -80,9 +81,14 @@ public class NewTaskDialogFragment extends DialogFragment {
 
     // Expand on the switch to open up a dialog fragment to select a date
 
-    public void onSwitchPickDate(View v) {
-        Toast test = Toast.makeText(getContext(), "Date Enabled", Toast.LENGTH_SHORT);
-        test.show();
+    public void onSwitchPickDate(View v, boolean isChecked) {
+        if (isChecked) {
+            Toast toast = Toast.makeText(getContext(), "ON", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            Toast toast = Toast.makeText(getContext(), "OFF", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void setDialogResult(OnMyDialogResult dialogResult){
